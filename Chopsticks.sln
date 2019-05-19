@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.106
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chopsticks", "Chopsticks\Chopsticks.csproj", "{2C1DF7A8-64D8-489D-987A-4533DA3F1AE8}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonteCarloLib", "MonteCarloLib\MonteCarloLib.csproj", "{382FCFBC-EDDC-4965-B164-327DF50B5F3D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2C1DF7A8-64D8-489D-987A-4533DA3F1AE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C1DF7A8-64D8-489D-987A-4533DA3F1AE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C1DF7A8-64D8-489D-987A-4533DA3F1AE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{382FCFBC-EDDC-4965-B164-327DF50B5F3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{382FCFBC-EDDC-4965-B164-327DF50B5F3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{382FCFBC-EDDC-4965-B164-327DF50B5F3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{382FCFBC-EDDC-4965-B164-327DF50B5F3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,10 @@
+C:\Users\David\Documents\GitHub\Chopsticks\Chopsticks\bin\Debug\Chopsticks.exe.config
+C:\Users\David\Documents\GitHub\Chopsticks\Chopsticks\bin\Debug\Chopsticks.exe
+C:\Users\David\Documents\GitHub\Chopsticks\Chopsticks\bin\Debug\Chopsticks.pdb
+C:\Users\David\Documents\GitHub\Chopsticks\Chopsticks\obj\Debug\Chopsticks.csprojAssemblyReference.cache
+C:\Users\David\Documents\GitHub\Chopsticks\Chopsticks\obj\Debug\Chopsticks.Form1.resources
+C:\Users\David\Documents\GitHub\Chopsticks\Chopsticks\obj\Debug\Chopsticks.Properties.Resources.resources
+C:\Users\David\Documents\GitHub\Chopsticks\Chopsticks\obj\Debug\Chopsticks.csproj.GenerateResource.cache
+C:\Users\David\Documents\GitHub\Chopsticks\Chopsticks\obj\Debug\Chopsticks.csproj.CoreCompileInputs.cache
+C:\Users\David\Documents\GitHub\Chopsticks\Chopsticks\obj\Debug\Chopsticks.exe
+C:\Users\David\Documents\GitHub\Chopsticks\Chopsticks\obj\Debug\Chopsticks.pdb
