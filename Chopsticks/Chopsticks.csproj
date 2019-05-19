@@ -67,6 +67,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -86,6 +87,16 @@
       <Project>{382fcfbc-eddc-4965-b164-327df50b5f3d}</Project>
       <Name>MonteCarloLib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\0.JPG" />
+    <Content Include="images\1.JPG" />
+    <Content Include="images\2.JPG" />
+    <Content Include="images\3.JPG" />
+    <Content Include="images\4.JPG" />
+    <Content Include="images\kapa.JPG" />
+    <None Include="images\r1.jpg" />
+    <Content Include="kapa.JPG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
