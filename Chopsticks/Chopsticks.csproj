@@ -96,6 +96,10 @@
     <Content Include="images\4.JPG" />
     <Content Include="images\kapa.JPG" />
     <None Include="images\r1.jpg" />
+    <Content Include="images\r0.jpg" />
+    <Content Include="images\r2.jpg" />
+    <Content Include="images\r3.jpg" />
+    <Content Include="images\r4.jpg" />
     <Content Include="kapa.JPG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

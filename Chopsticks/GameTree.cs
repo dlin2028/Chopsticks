@@ -14,7 +14,7 @@ namespace Chopsticks
 
         public GameTree(int hands, bool humanFirst = true)
         {
-            CurrentStatus = new GameStatus(hands);
+            CurrentStatus = new GameStatus(hands * 2);
 
             if (!humanFirst)
             {
@@ -35,5 +35,20 @@ namespace Chopsticks
                 CurrentStatus = (GameStatus)BestMove(CurrentStatus.Maximizer, 1000);
             }
         }
+
+        public void Transfer(int move, int hand)
+        {
+            if (CurrentStatus.IsTerminal)
+            {
+                return;
+            }
+            CurrentStatus = CurrentStatus.Transfer(move, CurrentStatus.Hands[hand]);
+
+            if (!CurrentStatus.IsTerminal)
+            {
+                CurrentStatus = (GameStatus)BestMove(CurrentStatus.Maximizer, 1000);
+            }
+        }
+
     }
 }

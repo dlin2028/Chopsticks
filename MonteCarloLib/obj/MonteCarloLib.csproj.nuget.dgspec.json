@@ -1,0 +1,62 @@
+{
+  "format": 1,
+  "restore": {
+    "\\\\GMRDC1\\Folder Redirection\\david.lin\\Documents\\Chopsticks\\MonteCarloLib\\MonteCarloLib.csproj": {}
+  },
+  "projects": {
+    "\\\\GMRDC1\\Folder Redirection\\david.lin\\Documents\\Chopsticks\\MonteCarloLib\\MonteCarloLib.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "\\\\GMRDC1\\Folder Redirection\\david.lin\\Documents\\Chopsticks\\MonteCarloLib\\MonteCarloLib.csproj",
+        "projectName": "MonteCarloLib",
+        "projectPath": "\\\\GMRDC1\\Folder Redirection\\david.lin\\Documents\\Chopsticks\\MonteCarloLib\\MonteCarloLib.csproj",
+        "packagesPath": "C:\\Users\\david.lin\\.nuget\\packages\\",
+        "outputPath": "\\\\GMRDC1\\Folder Redirection\\david.lin\\Documents\\Chopsticks\\MonteCarloLib\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\ProgramData\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\david.lin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

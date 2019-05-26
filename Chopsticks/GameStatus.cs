@@ -41,10 +41,10 @@ namespace Chopsticks
         public GameStatus(int hands)
         {
             Maximizer = true;
-            Hands = new List<int>(hands);
+            Hands = new List<int>();
             for (int i = 0; i < hands; i++)
             {
-                Hands[i] = 1;
+                Hands.Add(1);
             }
 
             moves = null;
@@ -67,16 +67,16 @@ namespace Chopsticks
         public GameStatus Attack(int move, int hand)
         {
             Hands[move] += Hands[hand];
-            if(Hands[move] > 4)
+            if (Hands[move] > 4)
             {
                 Hands[move] = 0;
             }
 
             return new GameStatus(Hands.ToArray(), !Maximizer);
         }
-        public GameStatus Transfer(int move, int hand, int amount)
+        public GameStatus Transfer(int move, int amount)
         {
-            Hands[move] += Hands[hand];
+            Hands[move] += amount;
             if (Hands[move] > 4)
             {
                 Hands[move] = 0;
@@ -94,7 +94,7 @@ namespace Chopsticks
 
             List<GameStatus> output = new List<GameStatus>();
 
-            if(Maximizer) //hands 0 to count/2
+            if (Maximizer) //hands 0 to count/2
             {
                 //attacks
                 for (int i = 0; i < Hands.Count / 2; i++) //hands.count is guaranteed to be an even number
@@ -108,14 +108,9 @@ namespace Chopsticks
                 //transfers
                 for (int i = Hands.Count / 2; i < Hands.Count; i++)
                 {
-                    for (int j = Hands.Count / 2; j < Hands.Count; j++)
+                    for (int k = 0; k < Hands[i]; k++)
                     {
-                        if (i == j) continue;
-
-                        for (int k = 0; k < Hands[i]; k++)
-                        {
-                            output.Add(Transfer(i, j, k));
-                        }
+                        output.Add(Transfer(i, k));
                     }
                 }
             }
@@ -128,17 +123,12 @@ namespace Chopsticks
                         output.Add(Attack(i + Hands.Count / 2, j));
                     }
                 }
-                
+
                 for (int i = Hands.Count / 2; i < Hands.Count; i++)
                 {
-                    for (int j = Hands.Count / 2; j < Hands.Count; j++)
+                    for (int k = 0; k < Hands[i]; k++)
                     {
-                        if (i == j) continue;
-
-                        for (int k = 0; k < Hands[i]; k++)
-                        {
-                            output.Add(Transfer(i, j, k));
-                        }
+                        output.Add(Transfer(i, k));
                     }
                 }
             }
@@ -148,12 +138,12 @@ namespace Chopsticks
 
         public void CheckGameOver()
         {
-            if(Hands.GetRange(0, Hands.Count/2).Sum() == 0)
+            if (Hands.GetRange(0, Hands.Count / 2).Sum() == 0)
             {
                 IsTerminal = true;
                 Value = 1;
             }
-            else if (Hands.GetRange(Hands.Count / 2, Hands.Count).Sum() == 0)
+            else if (Hands.GetRange(Hands.Count / 2, Hands.Count/2).Sum() == 0)
             {
                 IsTerminal = true;
                 Value = -1;
