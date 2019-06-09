@@ -78,27 +78,6 @@ namespace Chopsticks
                     switch (gameTree.CurrentStatus.Hands[i])
                     {
                         case 0:
-                            picBoxes[i].Image = Properties.Resources._0;
-                            break;
-                        case 1:
-                            picBoxes[i].Image = Properties.Resources._1;
-                            break;
-                        case 2:
-                            picBoxes[i].Image = Properties.Resources._2;
-                            break;
-                        case 3:
-                            picBoxes[i].Image = Properties.Resources._3;
-                            break;
-                        case 4:
-                            picBoxes[i].Image = Properties.Resources._4;
-                            break;
-                    }
-                }
-                else
-                {
-                    switch (gameTree.CurrentStatus.Hands[i])
-                    {
-                        case 0:
                             picBoxes[i].Image = Properties.Resources.r0;
                             break;
                         case 1:
@@ -115,6 +94,27 @@ namespace Chopsticks
                             break;
                     }
                 }
+                else
+                {
+                    switch (gameTree.CurrentStatus.Hands[i])
+                    {
+                        case 0:
+                            picBoxes[i].Image = Properties.Resources._0;
+                            break;
+                        case 1:
+                            picBoxes[i].Image = Properties.Resources._1;
+                            break;
+                        case 2:
+                            picBoxes[i].Image = Properties.Resources._2;
+                            break;
+                        case 3:
+                            picBoxes[i].Image = Properties.Resources._3;
+                            break;
+                        case 4:
+                            picBoxes[i].Image = Properties.Resources._4;
+                            break;
+                    }
+                }
             }
         }
 
@@ -122,7 +122,7 @@ namespace Chopsticks
         private void Form1_Load(object sender, EventArgs e)
         {
             Random rng = new Random();
-            humanFirst = rng.Next(0, 2) == 0;
+            humanFirst = true;//rng.Next(0, 2) == 0;
             gameTree = new GameTree(2, humanFirst);
             picBoxes = new[] {
                 pictureBox1,
@@ -130,30 +130,37 @@ namespace Chopsticks
                 pictureBox3,
                 pictureBox4
             };
+
+            label2.Text = (humanFirst ? 0 : 2).ToString();
+            label3.Text = (humanFirst ? 1 : 3).ToString();
+            label4.Text = (humanFirst ? 2 : 0).ToString();
+            label5.Text = (humanFirst ? 3 : 1).ToString();
+
+            updateUI();
         }
         private void PictureBox1_Click(object sender, EventArgs e)
         {
-            currHand = 0;
+            currHand = humanFirst ? 0 : 2;
             pictureBox1.BackColor = Color.Green;
             pictureBox2.BackColor = Color.White;
         }
 
         private void PictureBox2_Click(object sender, EventArgs e)
         {
-            currHand = 1;
+            currHand = humanFirst ? 1 : 3;
             pictureBox2.BackColor = Color.Green;
             pictureBox1.BackColor = Color.White;
         }
 
         private void PictureBox3_Click(object sender, EventArgs e)
         {
-            gameTree.Attack(2, currHand);
+            gameTree.Attack(humanFirst ? 2 : 0, currHand);
             updateUI();
         }
 
         private void PictureBox4_Click(object sender, EventArgs e)
         {
-            gameTree.Attack(1, currHand);
+            gameTree.Attack(humanFirst ? 3 : 1, currHand);
             updateUI();
         }
 
@@ -163,14 +170,19 @@ namespace Chopsticks
             {
                 if (((Button)sender).Tag as string == "l" + i.ToString())
                 {
-                    gameTree.Transfer(humanFirst ? 0 : 2, humanFirst ? 1 : 3);
+                    gameTree.Transfer(humanFirst ? 0 : 2, humanFirst ? 1 : 3, i);
                 }
                 else if(((Button)sender).Tag as string == "r" + i.ToString())
                 {
-                    gameTree.Transfer(humanFirst ? 1 : 3, humanFirst ? 0 : 2);
+                    gameTree.Transfer(humanFirst ? 1 : 3, humanFirst ? 0 : 2, i);
                 }
             }
             updateUI();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -46,11 +46,9 @@ namespace Chopsticks
             {
                 Hands.Add(1);
             }
-
             moves = null;
 
-            Value = 0;
-            IsTerminal = false;
+            CheckGameOver();
         }
         public GameStatus(int[] hands, bool maximizer)
         {
@@ -58,31 +56,45 @@ namespace Chopsticks
             Maximizer = maximizer;
             moves = null;
 
-            Value = 0;
-            IsTerminal = false;
-
             CheckGameOver();
         }
 
         public GameStatus Attack(int move, int hand)
         {
-            Hands[move] += Hands[hand];
-            if (Hands[move] > 4)
+            int[] hands = Hands.ToArray();
+
+            hands[move] += hands[hand];
+
+            if (hands[hand] < 0)
             {
-                Hands[move] = 0;
+                ;//uh oh
             }
 
-            return new GameStatus(Hands.ToArray(), !Maximizer);
+            if (hands[move] > 4)
+            {
+                hands[move] = 0;
+            }
+
+            return new GameStatus(hands, !Maximizer);
         }
-        public GameStatus Transfer(int move, int amount)
+        public GameStatus Transfer(int move, int hand, int amount)
         {
-            Hands[move] += amount;
-            if (Hands[move] > 4)
+            int[] hands = Hands.ToArray();
+
+            hands[move] += amount;
+            hands[hand] -= amount;
+
+            if(hands[hand] < 0)
             {
-                Hands[move] = 0;
+                ;//uh oh
             }
 
-            return new GameStatus(Hands.ToArray(), !Maximizer);
+            if (hands[move] > 4)
+            {
+                hands[move] = 0;
+            }
+
+            return new GameStatus(hands, !Maximizer);
         }
 
         public List<GameStatus> GenerateMoves()
@@ -99,18 +111,27 @@ namespace Chopsticks
                 //attacks
                 for (int i = 0; i < Hands.Count / 2; i++) //hands.count is guaranteed to be an even number
                 {
+                    if (Hands[i] == 0) continue;
+
                     for (int j = 0; j < Hands.Count / 2; j++)
                     {
-                        output.Add(Attack(i, j + Hands.Count / 2));
+                        output.Add(Attack(i + Hands.Count / 2, j));
                     }
                 }
 
                 //transfers
-                for (int i = Hands.Count / 2; i < Hands.Count; i++)
+                for (int i = 0; i < Hands.Count / 2; i++)
                 {
-                    for (int k = 0; k < Hands[i]; k++)
+                    if (Hands[i] == 0) continue;
+
+                    for (int j = 0; j < Hands.Count / 2; j++)
                     {
-                        output.Add(Transfer(i, k));
+                        if (j == i) continue;
+
+                        for (int k = 1; k <= Hands[j]; k++)
+                        {
+                            output.Add(Transfer(i, j, k));
+                        }
                     }
                 }
             }
@@ -118,19 +139,29 @@ namespace Chopsticks
             {
                 for (int i = 0; i < Hands.Count / 2; i++)
                 {
+                    if (Hands[i] == 0) continue;
+
                     for (int j = 0; j < Hands.Count / 2; j++)
                     {
-                        output.Add(Attack(i + Hands.Count / 2, j));
+                        output.Add(Attack(i, j + Hands.Count / 2));
                     }
                 }
 
                 for (int i = Hands.Count / 2; i < Hands.Count; i++)
                 {
-                    for (int k = 0; k < Hands[i]; k++)
+                    if (Hands[i] == 0) continue;
+
+                    for (int j = Hands.Count / 2; j < Hands.Count; j++)
                     {
-                        output.Add(Transfer(i, k));
+                        if (j == i) continue;
+
+                        for (int k = 1; k <= Hands[j]; k++)
+                        {
+                            output.Add(Transfer(i, j, k));
+                        }
                     }
                 }
+
             }
 
             return output;
@@ -138,15 +169,20 @@ namespace Chopsticks
 
         public void CheckGameOver()
         {
+            // Hands = new List<int>(new int[]{ 0, 0, 2, 2});
+
+            Value = 0;
+            IsTerminal = false;
+
             if (Hands.GetRange(0, Hands.Count / 2).Sum() == 0)
             {
                 IsTerminal = true;
-                Value = 1;
+                Value = -1;
             }
-            else if (Hands.GetRange(Hands.Count / 2, Hands.Count/2).Sum() == 0)
+            else if (Hands.GetRange(Hands.Count / 2, Hands.Count / 2).Sum() == 0)
             {
                 IsTerminal = true;
-                Value = -1;
+                Value = 1;
             }
         }
     }

@@ -28,7 +28,9 @@ namespace Chopsticks
             {
                 return;
             }
-            CurrentStatus = CurrentStatus.Attack(move, hand);
+            List<int> target = CurrentStatus.Attack(move, hand).Hands;
+
+            CurrentStatus = (GameStatus)CurrentStatus.Moves.FirstOrDefault(x => ((GameStatus)x).Hands.SequenceEqual(target));
 
             if (!CurrentStatus.IsTerminal)
             {
@@ -36,13 +38,15 @@ namespace Chopsticks
             }
         }
 
-        public void Transfer(int move, int hand)
+        public void Transfer(int move, int hand, int amount)
         {
             if (CurrentStatus.IsTerminal)
             {
                 return;
             }
-            CurrentStatus = CurrentStatus.Transfer(move, CurrentStatus.Hands[hand]);
+            List<int> target = CurrentStatus.Transfer(move, hand, amount).Hands;
+
+            CurrentStatus = (GameStatus)CurrentStatus.Moves.FirstOrDefault(x => ((GameStatus)x).Hands.SequenceEqual(target));
 
             if (!CurrentStatus.IsTerminal)
             {

@@ -115,6 +115,7 @@ namespace MonteCarloLib
 
             IGameStatus curr = startStatus;
             int currDepth = 0;
+            
             while (!curr.IsTerminal)
             {
                 curr = curr.Moves.ElementAt(random.Next(0, curr.Moves.Count()));
