@@ -84,7 +84,7 @@ namespace Chopsticks
             hands[move] += amount;
             hands[hand] -= amount;
 
-            if(hands[hand] < 0)
+            if (hands[hand] < 0)
             {
                 ;//uh oh
             }
@@ -106,31 +106,51 @@ namespace Chopsticks
 
             List<GameStatus> output = new List<GameStatus>();
 
+            Hands = new List<int>() { 1, 1, 2, 2 };
+
             if (Maximizer) //hands 0 to count/2
             {
                 //attacks
                 for (int i = 0; i < Hands.Count / 2; i++) //hands.count is guaranteed to be an even number
                 {
-                    if (Hands[i] == 0) continue;
+                    if (Hands[i + Hands.Count / 2] == 0) continue;
 
                     for (int j = 0; j < Hands.Count / 2; j++)
                     {
-                        output.Add(Attack(i + Hands.Count / 2, j));
+                        if (Hands[j] == 0) continue;
+
+                        var hi = Attack(i + Hands.Count / 2, j);
+
+                        if (hi.Hands.SequenceEqual(Hands))
+                        {
+                            ;
+                        }
+
+                        output.Add(hi);
                     }
                 }
 
                 //transfers
                 for (int i = 0; i < Hands.Count / 2; i++)
                 {
-                    if (Hands[i] == 0) continue;
-
                     for (int j = 0; j < Hands.Count / 2; j++)
                     {
                         if (j == i) continue;
 
                         for (int k = 1; k <= Hands[j]; k++)
                         {
-                            output.Add(Transfer(i, j, k));
+                            if (Hands[i] == 0 && k == Hands[j]) continue;
+
+                            var result = Transfer(i, j, k);
+
+                            if (result.Hands.SequenceEqual(Hands))
+                            {
+                                ;
+                            }
+
+                            output.Add(result);
+                            var derp = Transfer(i, j, k);
+                            ;
                         }
                     }
                 }
@@ -149,14 +169,14 @@ namespace Chopsticks
 
                 for (int i = Hands.Count / 2; i < Hands.Count; i++)
                 {
-                    if (Hands[i] == 0) continue;
-
                     for (int j = Hands.Count / 2; j < Hands.Count; j++)
                     {
                         if (j == i) continue;
 
                         for (int k = 1; k <= Hands[j]; k++)
                         {
+                            if (Hands[i] == 0 && k == Hands[j]) continue;
+
                             output.Add(Transfer(i, j, k));
                         }
                     }

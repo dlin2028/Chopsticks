@@ -14,7 +14,7 @@
         "outputPath": "\\\\GMRDC1\\Folder Redirection\\david.lin\\Documents\\Chopsticks\\MonteCarloLib\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\ProgramData\\Xamarin\\NuGet\\",
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [

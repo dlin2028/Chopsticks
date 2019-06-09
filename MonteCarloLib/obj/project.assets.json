@@ -179,24 +179,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\David\\.nuget\\packages\\": {},
+    "C:\\Users\\david.lin\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\David\\Documents\\GitHub\\Chopsticks\\MonteCarloLib\\MonteCarloLib.csproj",
+      "projectUniqueName": "\\\\GMRDC1\\Folder Redirection\\david.lin\\Documents\\Chopsticks\\MonteCarloLib\\MonteCarloLib.csproj",
       "projectName": "MonteCarloLib",
-      "projectPath": "C:\\Users\\David\\Documents\\GitHub\\Chopsticks\\MonteCarloLib\\MonteCarloLib.csproj",
-      "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\David\\Documents\\GitHub\\Chopsticks\\MonteCarloLib\\obj\\",
+      "projectPath": "\\\\GMRDC1\\Folder Redirection\\david.lin\\Documents\\Chopsticks\\MonteCarloLib\\MonteCarloLib.csproj",
+      "packagesPath": "C:\\Users\\david.lin\\.nuget\\packages\\",
+      "outputPath": "\\\\GMRDC1\\Folder Redirection\\david.lin\\Documents\\Chopsticks\\MonteCarloLib\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\david.lin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"

@@ -26,9 +26,42 @@ namespace Chopsticks
         GameTree gameTree;
         int currHand = 0;
         PictureBox[] picBoxes;
+        Button[] buttons;
 
         void updateUI()
         {
+            if (humanFirst)
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    buttons[i].Enabled = gameTree.CurrentStatus.Hands[1] > i;
+                }
+                for (int i = 4; i < 8; i++)
+                {
+                    buttons[i].Enabled = gameTree.CurrentStatus.Hands[0] > i - 4;
+                }
+
+                if(gameTree.CurrentStatus.Hands[0] == 0)
+                {
+                    buttons[gameTree.CurrentStatus.Hands[1] - 1].Enabled = false;
+                }
+                else if(gameTree.CurrentStatus.Hands[1] == 0)
+                {
+                    buttons[gameTree.CurrentStatus.Hands[0] + 3].Enabled = false;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    buttons[i].Enabled = gameTree.CurrentStatus.Hands[3] > i;
+                }
+                for (int i = 4; i < 8; i++)
+                {
+                    buttons[i].Enabled = gameTree.CurrentStatus.Hands[2] > i - 4;
+                }
+            } 
+
             for (int i = 0; i < picBoxes.Length; i++)
             {
                 if(humanFirst && i < 2)
@@ -129,6 +162,18 @@ namespace Chopsticks
                 pictureBox2,
                 pictureBox3,
                 pictureBox4
+            };
+            buttons = new[]
+            {
+                button1,
+                button2,
+                button3,
+                button4,
+                button5,
+                button6,
+                button7,
+                button8,
+                button9
             };
 
             label2.Text = (humanFirst ? 0 : 2).ToString();
