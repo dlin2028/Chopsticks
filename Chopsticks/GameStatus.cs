@@ -1,12 +1,14 @@
 ﻿using MonteCarloLib;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Chopsticks
 {
+    [DebuggerDisplay("{Hands[0]}, {Hands[1]}, {Hands[2]}, {Hands[3]}")]
     class GameStatus : MonteCarloLib.IGameStatus
     {
         private List<GameStatus> moves;
@@ -27,6 +29,9 @@ namespace Chopsticks
                 moves = (List<GameStatus>)value;
             }
         }
+
+        //de1337 later
+        public GameStatus Parent;
 
         public double Wins { get; set; }
         public double Simulations { get; set; }
@@ -50,11 +55,13 @@ namespace Chopsticks
 
             CheckGameOver();
         }
-        public GameStatus(int[] hands, bool maximizer)
+        public GameStatus(int[] hands, bool maximizer, GameStatus parent)
         {
             Hands = new List<int>(hands);
             Maximizer = maximizer;
             moves = null;
+
+            Parent = parent;
 
             CheckGameOver();
         }
@@ -75,7 +82,7 @@ namespace Chopsticks
                 hands[move] = 0;
             }
 
-            return new GameStatus(hands, !Maximizer);
+            return new GameStatus(hands, !Maximizer, this);
         }
         public GameStatus Transfer(int move, int hand, int amount)
         {
@@ -94,7 +101,7 @@ namespace Chopsticks
                 hands[move] = 0;
             }
 
-            return new GameStatus(hands, !Maximizer);
+            return new GameStatus(hands, !Maximizer, this);
         }
 
         public List<GameStatus> GenerateMoves()
@@ -106,13 +113,13 @@ namespace Chopsticks
 
             List<GameStatus> output = new List<GameStatus>();
 
-            Hands = new List<int>() { 1, 1, 2, 2 };
+            //Hands = new List<int>() { 1, 1, 2, 2 };
 
             if (Maximizer) //hands 0 to count/2
             {
                 //attacks
                 for (int i = 0; i < Hands.Count / 2; i++) //hands.count is guaranteed to be an even number
-                {
+                {      
                     if (Hands[i + Hands.Count / 2] == 0) continue;
 
                     for (int j = 0; j < Hands.Count / 2; j++)
@@ -142,11 +149,9 @@ namespace Chopsticks
                             if (Hands[i] == 0 && k == Hands[j]) continue;
 
                             var result = Transfer(i, j, k);
-
-                            if (result.Hands.SequenceEqual(Hands))
-                            {
-                                ;
-                            }
+                            var copy = result.Hands.ToArray();
+                            ;
+                            //if (result.Hands.SequenceEqual(Hands))
 
                             output.Add(result);
                             var derp = Transfer(i, j, k);
@@ -163,6 +168,8 @@ namespace Chopsticks
 
                     for (int j = 0; j < Hands.Count / 2; j++)
                     {
+                        if (Hands[j + Hands.Count / 2] == 0) continue;
+
                         output.Add(Attack(i, j + Hands.Count / 2));
                     }
                 }

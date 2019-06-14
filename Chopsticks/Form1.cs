@@ -43,11 +43,11 @@ namespace Chopsticks
 
                 if(gameTree.CurrentStatus.Hands[0] == 0)
                 {
-                    buttons[gameTree.CurrentStatus.Hands[1] - 1].Enabled = false;
+                    buttons[gameTree.CurrentStatus.Hands[1]].Enabled = false;
                 }
                 else if(gameTree.CurrentStatus.Hands[1] == 0)
                 {
-                    buttons[gameTree.CurrentStatus.Hands[0] + 3].Enabled = false;
+                    buttons[gameTree.CurrentStatus.Hands[0] + 4].Enabled = false;
                 }
             }
             else
@@ -216,10 +216,12 @@ namespace Chopsticks
                 if (((Button)sender).Tag as string == "l" + i.ToString())
                 {
                     gameTree.Transfer(humanFirst ? 0 : 2, humanFirst ? 1 : 3, i);
+                    break;
                 }
                 else if(((Button)sender).Tag as string == "r" + i.ToString())
                 {
                     gameTree.Transfer(humanFirst ? 1 : 3, humanFirst ? 0 : 2, i);
+                    break;
                 }
             }
             updateUI();

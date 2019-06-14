@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "\\\\GMRDC1\\Folder Redirection\\david.lin\\Documents\\Chopsticks\\MonteCarloLib\\MonteCarloLib.csproj": {}
+    "C:\\Users\\dlin2\\Documents\\GitHub\\Chopsticks\\MonteCarloLib\\MonteCarloLib.csproj": {}
   },
   "projects": {
-    "\\\\GMRDC1\\Folder Redirection\\david.lin\\Documents\\Chopsticks\\MonteCarloLib\\MonteCarloLib.csproj": {
+    "C:\\Users\\dlin2\\Documents\\GitHub\\Chopsticks\\MonteCarloLib\\MonteCarloLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "\\\\GMRDC1\\Folder Redirection\\david.lin\\Documents\\Chopsticks\\MonteCarloLib\\MonteCarloLib.csproj",
+        "projectUniqueName": "C:\\Users\\dlin2\\Documents\\GitHub\\Chopsticks\\MonteCarloLib\\MonteCarloLib.csproj",
         "projectName": "MonteCarloLib",
-        "projectPath": "\\\\GMRDC1\\Folder Redirection\\david.lin\\Documents\\Chopsticks\\MonteCarloLib\\MonteCarloLib.csproj",
-        "packagesPath": "C:\\Users\\david.lin\\.nuget\\packages\\",
-        "outputPath": "\\\\GMRDC1\\Folder Redirection\\david.lin\\Documents\\Chopsticks\\MonteCarloLib\\obj\\",
+        "projectPath": "C:\\Users\\dlin2\\Documents\\GitHub\\Chopsticks\\MonteCarloLib\\MonteCarloLib.csproj",
+        "packagesPath": "C:\\Users\\dlin2\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dlin2\\Documents\\GitHub\\Chopsticks\\MonteCarloLib\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\david.lin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dlin2\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],

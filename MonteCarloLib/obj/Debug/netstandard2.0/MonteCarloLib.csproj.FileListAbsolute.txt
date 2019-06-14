@@ -34,3 +34,12 @@ C:\Users\David\Documents\GitHub\Chopsticks\MonteCarloLib\obj\Debug\netstandard2.
 \\GMRDC1\Folder Redirection\david.lin\Documents\Chopsticks\MonteCarloLib\obj\Debug\netstandard2.0\MonteCarloLib.AssemblyInfo.cs
 \\GMRDC1\Folder Redirection\david.lin\Documents\Chopsticks\MonteCarloLib\obj\Debug\netstandard2.0\MonteCarloLib.dll
 \\GMRDC1\Folder Redirection\david.lin\Documents\Chopsticks\MonteCarloLib\obj\Debug\netstandard2.0\MonteCarloLib.pdb
+C:\Users\dlin2\Documents\GitHub\Chopsticks\MonteCarloLib\bin\Debug\netstandard2.0\MonteCarloLib.deps.json
+C:\Users\dlin2\Documents\GitHub\Chopsticks\MonteCarloLib\bin\Debug\netstandard2.0\MonteCarloLib.dll
+C:\Users\dlin2\Documents\GitHub\Chopsticks\MonteCarloLib\bin\Debug\netstandard2.0\MonteCarloLib.pdb
+C:\Users\dlin2\Documents\GitHub\Chopsticks\MonteCarloLib\obj\Debug\netstandard2.0\MonteCarloLib.csprojAssemblyReference.cache
+C:\Users\dlin2\Documents\GitHub\Chopsticks\MonteCarloLib\obj\Debug\netstandard2.0\MonteCarloLib.csproj.CoreCompileInputs.cache
+C:\Users\dlin2\Documents\GitHub\Chopsticks\MonteCarloLib\obj\Debug\netstandard2.0\MonteCarloLib.AssemblyInfoInputs.cache
+C:\Users\dlin2\Documents\GitHub\Chopsticks\MonteCarloLib\obj\Debug\netstandard2.0\MonteCarloLib.AssemblyInfo.cs
+C:\Users\dlin2\Documents\GitHub\Chopsticks\MonteCarloLib\obj\Debug\netstandard2.0\MonteCarloLib.dll
+C:\Users\dlin2\Documents\GitHub\Chopsticks\MonteCarloLib\obj\Debug\netstandard2.0\MonteCarloLib.pdb
