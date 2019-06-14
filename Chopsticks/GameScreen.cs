@@ -36,75 +36,59 @@ namespace Chopsticks
 
         void updateUI()
         {
-            if(gameTree.CurrentStatus.IsTerminal)
+            if (!gameTree.CurrentStatus.IsTerminal)
             {
-                if(humanFirst && gameTree.CurrentStatus.Value == -1)
+                if (humanFirst)
                 {
-                    MessageBox.Show("u loooose");
+                    for (int i = 0; i < 4; i++)
+                    {
+                        buttons[i].Enabled = gameTree.CurrentStatus.Hands[1] > i;
+                    }
+                    for (int i = 4; i < 8; i++)
+                    {
+                        buttons[i].Enabled = gameTree.CurrentStatus.Hands[0] > i - 4;
+                    }
+
+                    if (gameTree.CurrentStatus.Hands[0] != 0 && gameTree.CurrentStatus.Hands[1] != 0)
+                    {
+                        if (gameTree.CurrentStatus.Hands[0] == 0)
+                        {
+                            buttons[gameTree.CurrentStatus.Hands[1]].Enabled = false;
+                        }
+                        else if (gameTree.CurrentStatus.Hands[1] == 0)
+                        {
+                            buttons[gameTree.CurrentStatus.Hands[0] + 4].Enabled = false;
+                        }
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("ez money");
-                }
-
-                this.Hide();
-                var menu = new Menu();
-                menu.Closed += (s, args) => this.Close();
-                menu.Show();
-
-                return;
-            }
-
-            if (humanFirst)
-            {
-                for (int i = 0; i < 4; i++)
-                {
-                    buttons[i].Enabled = gameTree.CurrentStatus.Hands[1] > i;
-                }
-                for (int i = 4; i < 8; i++)
-                {
-                    buttons[i].Enabled = gameTree.CurrentStatus.Hands[0] > i - 4;
-                }
-
-                if(gameTree.CurrentStatus.Hands[0] != 0 && gameTree.CurrentStatus.Hands[0] != 0)
-                {
-                    if (gameTree.CurrentStatus.Hands[0] == 0)
+                    for (int i = 0; i < 4; i++)
                     {
-                        buttons[gameTree.CurrentStatus.Hands[1] - 1].Enabled = false;
+                        buttons[i].Enabled = gameTree.CurrentStatus.Hands[3] > i;
                     }
-                    else if (gameTree.CurrentStatus.Hands[1] == 0)
+                    for (int i = 4; i < 8; i++)
                     {
-                        buttons[gameTree.CurrentStatus.Hands[0] + 3].Enabled = false;
+                        buttons[i].Enabled = gameTree.CurrentStatus.Hands[2] > i - 4;
+                    }
+
+                    if (gameTree.CurrentStatus.Hands[2] != 0 && gameTree.CurrentStatus.Hands[3] != 0)
+                    {
+                        if (gameTree.CurrentStatus.Hands[2] == 0)
+                        {
+                            buttons[gameTree.CurrentStatus.Hands[3]].Enabled = false;
+                        }
+                        else if (gameTree.CurrentStatus.Hands[3] == 0)
+                        {
+                            buttons[gameTree.CurrentStatus.Hands[2] + 4].Enabled = false;
+                        }
                     }
                 }
             }
-            else
-            {
-                for (int i = 0; i < 4; i++)
-                {
-                    buttons[i].Enabled = gameTree.CurrentStatus.Hands[3] > i;
-                }
-                for (int i = 4; i < 8; i++)
-                {
-                    buttons[i].Enabled = gameTree.CurrentStatus.Hands[2] > i - 4;
-                }
-
-                if (gameTree.CurrentStatus.Hands[0] != 0 && gameTree.CurrentStatus.Hands[0] != 0)
-                {
-                    if (gameTree.CurrentStatus.Hands[2] == 0)
-                    {
-                        buttons[gameTree.CurrentStatus.Hands[3] - 1].Enabled = false;
-                    }
-                    else if (gameTree.CurrentStatus.Hands[3] == 0)
-                    {
-                        buttons[gameTree.CurrentStatus.Hands[2] + 3].Enabled = false;
-                    }
-                }
-            } 
 
             for (int i = 0; i < picBoxes.Length; i++)
             {
-                if(humanFirst && i < 2)
+                if (humanFirst && i < 2)
                 {
                     switch (gameTree.CurrentStatus.Hands[i])
                     {
@@ -125,7 +109,7 @@ namespace Chopsticks
                             break;
                     }
                 }
-                else if(humanFirst)
+                else if (humanFirst)
                 {
                     switch (gameTree.CurrentStatus.Hands[i])
                     {
@@ -146,7 +130,7 @@ namespace Chopsticks
                             break;
                     }
                 }
-                else if(i < 2)
+                else if (i < 2)
                 {
                     switch (gameTree.CurrentStatus.Hands[i + 2])
                     {
@@ -188,6 +172,25 @@ namespace Chopsticks
                             break;
                     }
                 }
+            }
+
+            if (gameTree.CurrentStatus.IsTerminal)
+            {
+                if (humanFirst && gameTree.CurrentStatus.Value == -1)
+                {
+                    MessageBox.Show("u loooose");
+                }
+                else
+                {
+                    MessageBox.Show("ez money");
+                }
+
+                this.Hide();
+                var menu = new Menu();
+                menu.Closed += (s, args) => this.Close();
+                menu.Show();
+
+                return;
             }
         }
 
@@ -257,7 +260,7 @@ namespace Chopsticks
                     gameTree.Transfer(humanFirst ? 0 : 2, humanFirst ? 1 : 3, i);
                     break;
                 }
-                else if(((Button)sender).Tag as string == "r" + i.ToString())
+                else if (((Button)sender).Tag as string == "r" + i.ToString())
                 {
                     gameTree.Transfer(humanFirst ? 1 : 3, humanFirst ? 0 : 2, i);
                     break;

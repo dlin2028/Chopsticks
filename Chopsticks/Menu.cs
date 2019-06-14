@@ -25,7 +25,7 @@ namespace Chopsticks
         private void Button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var gameScreen = new GameScreen(true, (int)Math.Pow(trackBar1.Value, 2));
+            var gameScreen = new GameScreen(true, 2 * (int)Math.Pow(trackBar1.Value, 2));
             gameScreen.Closed += (s, args) => this.Close();
             gameScreen.Show();
         }
@@ -33,14 +33,14 @@ namespace Chopsticks
         private void Button3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var gameScreen = new GameScreen(false, (int)Math.Pow(trackBar1.Value, 2));
+            var gameScreen = new GameScreen(false, 2 * (int)Math.Pow(trackBar1.Value, 2));
             gameScreen.Closed += (s, args) => this.Close();
             gameScreen.Show();
         }
 
         private void TrackBar1_Scroll(object sender, EventArgs e)
         {
-            label7.Text = ((int)Math.Pow(trackBar1.Value, 2)).ToString();
+            label7.Text = (2 * (int)Math.Pow(trackBar1.Value, 2)).ToString();
         }
 
         private void Button2_Click(object sender, EventArgs e)
