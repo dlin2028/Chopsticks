@@ -11,12 +11,18 @@ using System.Windows.Forms;
 
 namespace Chopsticks
 {
-    public partial class Form1 : Form
+    public partial class GameScreen : Form
     {
-        public Form1()
+        private int difficulty;
+
+        public GameScreen(bool humanFirst, int difficulty)
         {
+            this.difficulty = difficulty;
+            this.humanFirst = humanFirst;
             InitializeComponent();
         }
+
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -30,6 +36,25 @@ namespace Chopsticks
 
         void updateUI()
         {
+            if(gameTree.CurrentStatus.IsTerminal)
+            {
+                if(humanFirst && gameTree.CurrentStatus.Value == -1)
+                {
+                    MessageBox.Show("u loooose");
+                }
+                else
+                {
+                    MessageBox.Show("ez money");
+                }
+
+                this.Hide();
+                var menu = new Menu();
+                menu.Closed += (s, args) => this.Close();
+                menu.Show();
+
+                return;
+            }
+
             if (humanFirst)
             {
                 for (int i = 0; i < 4; i++)
@@ -41,13 +66,16 @@ namespace Chopsticks
                     buttons[i].Enabled = gameTree.CurrentStatus.Hands[0] > i - 4;
                 }
 
-                if(gameTree.CurrentStatus.Hands[0] == 0)
+                if(gameTree.CurrentStatus.Hands[0] != 0 && gameTree.CurrentStatus.Hands[0] != 0)
                 {
-                    buttons[gameTree.CurrentStatus.Hands[1]].Enabled = false;
-                }
-                else if(gameTree.CurrentStatus.Hands[1] == 0)
-                {
-                    buttons[gameTree.CurrentStatus.Hands[0] + 4].Enabled = false;
+                    if (gameTree.CurrentStatus.Hands[0] == 0)
+                    {
+                        buttons[gameTree.CurrentStatus.Hands[1] - 1].Enabled = false;
+                    }
+                    else if (gameTree.CurrentStatus.Hands[1] == 0)
+                    {
+                        buttons[gameTree.CurrentStatus.Hands[0] + 3].Enabled = false;
+                    }
                 }
             }
             else
@@ -59,6 +87,18 @@ namespace Chopsticks
                 for (int i = 4; i < 8; i++)
                 {
                     buttons[i].Enabled = gameTree.CurrentStatus.Hands[2] > i - 4;
+                }
+
+                if (gameTree.CurrentStatus.Hands[0] != 0 && gameTree.CurrentStatus.Hands[0] != 0)
+                {
+                    if (gameTree.CurrentStatus.Hands[2] == 0)
+                    {
+                        buttons[gameTree.CurrentStatus.Hands[3] - 1].Enabled = false;
+                    }
+                    else if (gameTree.CurrentStatus.Hands[3] == 0)
+                    {
+                        buttons[gameTree.CurrentStatus.Hands[2] + 3].Enabled = false;
+                    }
                 }
             } 
 
@@ -108,7 +148,7 @@ namespace Chopsticks
                 }
                 else if(i < 2)
                 {
-                    switch (gameTree.CurrentStatus.Hands[i])
+                    switch (gameTree.CurrentStatus.Hands[i + 2])
                     {
                         case 0:
                             picBoxes[i].Image = Properties.Resources.r0;
@@ -129,7 +169,7 @@ namespace Chopsticks
                 }
                 else
                 {
-                    switch (gameTree.CurrentStatus.Hands[i])
+                    switch (gameTree.CurrentStatus.Hands[i - 2])
                     {
                         case 0:
                             picBoxes[i].Image = Properties.Resources._0;
@@ -155,8 +195,8 @@ namespace Chopsticks
         private void Form1_Load(object sender, EventArgs e)
         {
             Random rng = new Random();
-            humanFirst = true;//rng.Next(0, 2) == 0;
-            gameTree = new GameTree(2, humanFirst);
+            //humanFirst = false;//rng.Next(0, 2) == 0;
+            gameTree = new GameTree(2, difficulty, humanFirst);
             picBoxes = new[] {
                 pictureBox1,
                 pictureBox2,
@@ -173,7 +213,6 @@ namespace Chopsticks
                 button6,
                 button7,
                 button8,
-                button9
             };
 
             label2.Text = (humanFirst ? 0 : 2).ToString();

@@ -12,16 +12,16 @@ namespace Chopsticks
         public GameStatus CurrentStatus;
         protected override IGameStatus Current => CurrentStatus;
 
-        private bool isMax;
+        private int playouts;
 
-        public GameTree(int hands, bool humanFirst = true)
+        public GameTree(int hands, int playouts, bool humanFirst = true)
         {
+            this.playouts = playouts;
             CurrentStatus = new GameStatus(hands * 2);
-            isMax = !humanFirst;
 
             if (!humanFirst)
             {
-                CurrentStatus = (GameStatus)BestMove(isMax, 5000);
+                CurrentStatus = (GameStatus)BestMove(true, playouts);
             }
         }
 
@@ -38,7 +38,7 @@ namespace Chopsticks
             if (!CurrentStatus.IsTerminal)
             {
                 //3310 !max has duplicate
-                CurrentStatus = (GameStatus)BestMove(isMax, 5000);
+                CurrentStatus = (GameStatus)BestMove(CurrentStatus.Maximizer, playouts);
             }
         }
 
@@ -54,7 +54,7 @@ namespace Chopsticks
 
             if (!CurrentStatus.IsTerminal)
             {
-                CurrentStatus = (GameStatus)BestMove(isMax, 5000);
+                CurrentStatus = (GameStatus)BestMove(CurrentStatus.Maximizer, playouts);
             }
         }
 

@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{2C1DF7A8-64D8-489D-987A-4533DA3F1AE8}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>Chopsticks</RootNamespace>
     <AssemblyName>Chopsticks</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -49,18 +49,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="GameScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="GameScreen.Designer.cs">
+      <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="GameStatus.cs" />
     <Compile Include="GameTree.cs" />
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="GameScreen.resx">
+      <DependentUpon>GameScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -98,6 +107,12 @@
     <Content Include="images\3.JPG" />
     <Content Include="images\4.JPG" />
     <Content Include="images\kapa.JPG" />
+    <None Include="Resources\board.png" />
+    <None Include="Resources\title.png" />
+    <None Include="Resources\wood-1580x549.jpg" />
+    <None Include="Resources\picturetopeople.org-53c5d396de71e8e77bbbafd9bd8d37aad5c724f5f2eccd28e21.png" />
+    <None Include="Resources\picturetopeople.org-53c5d396de71e8e77bbbafd9bd8d37aad5c724f5f2eccd28e2.png" />
+    <None Include="Resources\Title.bmp" />
     <None Include="images\r1.jpg" />
     <Content Include="images\r0.jpg" />
     <Content Include="images\r2.jpg" />

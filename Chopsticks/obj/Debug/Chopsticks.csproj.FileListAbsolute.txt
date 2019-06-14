@@ -321,10 +321,11 @@ C:\Users\dlin2\Documents\GitHub\Chopsticks\Chopsticks\bin\Debug\MonteCarloLib.dl
 C:\Users\dlin2\Documents\GitHub\Chopsticks\Chopsticks\bin\Debug\MonteCarloLib.pdb
 C:\Users\dlin2\Documents\GitHub\Chopsticks\Chopsticks\obj\Debug\Chopsticks.csprojAssemblyReference.cache
 C:\Users\dlin2\Documents\GitHub\Chopsticks\Chopsticks\obj\Debug\Chopsticks.exe.config
-C:\Users\dlin2\Documents\GitHub\Chopsticks\Chopsticks\obj\Debug\Chopsticks.Form1.resources
 C:\Users\dlin2\Documents\GitHub\Chopsticks\Chopsticks\obj\Debug\Chopsticks.Properties.Resources.resources
 C:\Users\dlin2\Documents\GitHub\Chopsticks\Chopsticks\obj\Debug\Chopsticks.csproj.GenerateResource.cache
 C:\Users\dlin2\Documents\GitHub\Chopsticks\Chopsticks\obj\Debug\Chopsticks.csproj.CoreCompileInputs.cache
 C:\Users\dlin2\Documents\GitHub\Chopsticks\Chopsticks\obj\Debug\Chopsticks.csproj.CopyComplete
 C:\Users\dlin2\Documents\GitHub\Chopsticks\Chopsticks\obj\Debug\Chopsticks.exe
 C:\Users\dlin2\Documents\GitHub\Chopsticks\Chopsticks\obj\Debug\Chopsticks.pdb
+C:\Users\dlin2\Documents\GitHub\Chopsticks\Chopsticks\obj\Debug\Chopsticks.GameScreen.resources
+C:\Users\dlin2\Documents\GitHub\Chopsticks\Chopsticks\obj\Debug\Chopsticks.Menu.resources

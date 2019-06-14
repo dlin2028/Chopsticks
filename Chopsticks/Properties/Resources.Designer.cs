@@ -113,9 +113,29 @@ namespace Chopsticks.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap board {
+            get {
+                object obj = ResourceManager.GetObject("board", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap kapa {
             get {
                 object obj = ResourceManager.GetObject("kapa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap picturetopeople_org_53c5d396de71e8e77bbbafd9bd8d37aad5c724f5f2eccd28e2 {
+            get {
+                object obj = ResourceManager.GetObject("picturetopeople.org-53c5d396de71e8e77bbbafd9bd8d37aad5c724f5f2eccd28e2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -176,6 +196,26 @@ namespace Chopsticks.Properties {
         internal static System.Drawing.Bitmap r4 {
             get {
                 object obj = ResourceManager.GetObject("r4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap title {
+            get {
+                object obj = ResourceManager.GetObject("title", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wood_1580x549 {
+            get {
+                object obj = ResourceManager.GetObject("wood-1580x549", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
